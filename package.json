@@ -1,0 +1,18 @@
+{
+  "name": "pcq-js-utils",
+  "version": "1.0.0",
+  "description": "常用的的方法库",
+  "main": "/",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "javascript"
+  ],
+  "author": "pcq",
+  "license": "ISC",
+  "dependencies": {
+    "circular-json": "^0.5.9",
+    "dayjs": "^1.11.10"
+  }
+}
