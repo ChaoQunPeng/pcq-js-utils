@@ -2,7 +2,7 @@
  * @Author: PengChaoQun 1152684231@qq.com
  * @Date: 2023-11-13 19:14:45
  * @LastEditors: PengChaoQun 1152684231@qq.com
- * @LastEditTime: 2023-11-15 11:36:16
+ * @LastEditTime: 2023-11-15 14:24:30
  * @FilePath: /pcq-js-utils/src/js/byte-size-format.js
  * @Description: 字节转kb
  */
@@ -13,7 +13,7 @@
  * 小于 1024MB 单位返回MB
  * 小于 1024GB 单位返回GB
  */
-export const byteSizeFormat = function () {
+export const byteSizeFormat = function (B) {
     let KB = (B / 1024);
     let MB = (B / 1024 / 1024);
     let GB = (B / 1024 / 1024 / 1024);
