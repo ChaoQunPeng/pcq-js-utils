@@ -2,7 +2,7 @@
  * @Author: PengChaoQun 1152684231@qq.com
  * @Date: 2024-05-02 17:59:17
  * @LastEditors: PengChaoQun 1152684231@qq.com
- * @LastEditTime: 2024-05-04 11:48:12
+ * @LastEditTime: 2024-05-04 20:54:04
  * @FilePath: /pcq-js-utils/index.d.ts
  * @Description:
  */
@@ -52,7 +52,7 @@ declare module 'pcq-js-utils' {
    * 其中包括 children 属性，默认值为 'children'，以及一个索引签名，允许其他键值对。
    */
   interface IRecursionArrayConfig {
-    children: string = 'children';
+    children: string;
     [key: string]: string;
   }
 
@@ -106,12 +106,6 @@ declare module 'pcq-js-utils' {
     updateNodeChecked: (node: any) => void;
   }
 
-  const treeHandle: ITreeHandle = {
-    checkedChildren: (node: any) => {},
-    handleAncestor: (node: any) => {},
-    updateNodeChecked: (node: any) => {}
-  };
-
   interface IResolveTreeConfig {
     /**
      * 节点的唯一标识符。默认为 'id'
@@ -143,11 +137,7 @@ declare module 'pcq-js-utils' {
    * @param emptyText 如果传入的value无法解析为有效日期时，将显示此参数指定的文本，默认为'-'。
    * @returns void 此函数没有返回值，它主要用于将日期格式化后输出或用于其他逻辑处理。
    */
-  const dateFormat: (
-    value: string | number | Date,
-    format: string = 'YYYY-MM-DD',
-    emptyText: string = '-'
-  ) => void;
+  const dateFormat: (value: string | number | Date, format: string, emptyText: string) => void;
 
   /**
    * 定义一个用于高亮关键词的配置接口。
@@ -172,6 +162,6 @@ declare module 'pcq-js-utils' {
   const hightLightKeyword: (
     list: Array<any>,
     keyword: string,
-    config: IHightLightKeywordConfig = {}
+    config: IHightLightKeywordConfig
   ) => void;
 }
