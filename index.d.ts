@@ -2,7 +2,7 @@
  * @Author: PengChaoQun 1152684231@qq.com
  * @Date: 2024-05-02 17:59:17
  * @LastEditors: PengChaoQun 1152684231@qq.com
- * @LastEditTime: 2024-05-03 13:39:07
+ * @LastEditTime: 2024-05-04 11:48:12
  * @FilePath: /pcq-js-utils/index.d.ts
  * @Description:
  */
@@ -147,5 +147,31 @@ declare module 'pcq-js-utils' {
     value: string | number | Date,
     format: string = 'YYYY-MM-DD',
     emptyText: string = '-'
+  ) => void;
+
+  /**
+   * 定义一个用于高亮关键词的配置接口。
+   *
+   * @interface IHightLightKeywordConfig
+   * @property {string} key - 要替换的key名
+   * @property {string} className - 用于关键词高亮的CSS类名。
+   * @property {string} style - 直接应用于关键词的内联样式。
+   * @property {true} isReplaceAll - 指定是否替换所有匹配的关键词。此属性值固定为true。
+   * @property {string} resultKey - 匹配成功后，结果在对象中存储的键名。
+   * @property {[key: string]: any} - 允许额外的属性以任意键值对的形式存在。
+   */
+  interface IHightLightKeywordConfig {
+    key: string;
+    className: string;
+    style: string;
+    isReplaceAll: true;
+    resultKey: string;
+    [key: string]: any;
+  }
+
+  const hightLightKeyword: (
+    list: Array<any>,
+    keyword: string,
+    config: IHightLightKeywordConfig = {}
   ) => void;
 }
