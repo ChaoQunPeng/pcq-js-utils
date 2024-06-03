@@ -1,12 +1,12 @@
 /*
  * @Date: 2023-08-27 23:32:56
  * @LastEditors: PengChaoQun 1152684231@qq.com
- * @LastEditTime: 2024-06-03 09:25:56
+ * @LastEditTime: 2024-06-03 09:32:24
  * @FilePath: /pcq-js-utils/src/subject/subject.js
  * @Description: 通用的发布订阅
  */
 
-class Subject {
+export class Subject {
   /**
    * 构造函数初始化一个空的对象来存储事件名称与观察者函数的映射。
    */
