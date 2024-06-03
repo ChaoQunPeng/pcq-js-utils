@@ -1,15 +1,12 @@
 /*
  * @Date: 2023-08-27 23:32:56
  * @LastEditors: PengChaoQun 1152684231@qq.com
- * @LastEditTime: 2024-05-03 11:26:24
+ * @LastEditTime: 2024-06-03 09:25:56
  * @FilePath: /pcq-js-utils/src/subject/subject.js
  * @Description: 通用的发布订阅
  */
 
-/**
- * Subject类用于实现简单的发布-订阅模式。
- */
-export class Subject {
+class Subject {
   /**
    * 构造函数初始化一个空的对象来存储事件名称与观察者函数的映射。
    */
@@ -22,13 +19,20 @@ export class Subject {
    * @param {string} eventName - 事件名称。
    * @param {Function} fn - 观察者函数，事件被触发时会调用此函数。
    */
-  subscribe(eventName, fn) {
+  subscribe(eventName, fn, options = { onlyOne: false }) {
     // 如果没有订阅过此事件，则初始化一个空数组
     if (!this.subjectMaps[eventName]) {
       this.subjectMaps[eventName] = [];
     }
 
-    this.subjectMaps[eventName].push(fn); // 添加观察者函数到事件的观察者数组中
+    // 至少要注册一个事件
+    if (this.subjectMaps[eventName].length == 0) {
+      this.subjectMaps[eventName].push(fn);
+    }
+    // 如果已经存在，并且options.onlyOne为false，则允许继续注册，即允许注册多个相同名称的事件。
+    else if (this.subjectMaps[eventName].length > 0 && !options.onlyOne) {
+      this.subjectMaps[eventName].push(fn);
+    }
   }
 
   /**
@@ -60,6 +64,3 @@ export class Subject {
     });
   }
 }
-
-// Subject类对应的Typescript类型声明
-
