@@ -2,7 +2,7 @@
  * @Author: PengChaoQun 1152684231@qq.com
  * @Date: 2024-05-02 17:59:17
  * @LastEditors: PengChaoQun 1152684231@qq.com
- * @LastEditTime: 2024-05-04 20:54:04
+ * @LastEditTime: 2024-05-22 16:24:26
  * @FilePath: /pcq-js-utils/index.d.ts
  * @Description:
  */
@@ -164,4 +164,6 @@ declare module 'pcq-js-utils' {
     keyword: string,
     config: IHightLightKeywordConfig
   ) => void;
+
+  const isEmpty: (obj: any) => Boolean;
 }
