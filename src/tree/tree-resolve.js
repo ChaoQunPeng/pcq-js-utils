@@ -2,10 +2,12 @@
  * @Author: pcq 1152684231@qq.com
  * @Date: 2023-11-13 18:34:17
  * @LastEditors: PengChaoQun 1152684231@qq.com
- * @LastEditTime: 2024-05-03 13:27:55
+ * @LastEditTime: 2024-06-03 09:21:27
  * @FilePath: /pcq-js-utils/src/tree/tree-resolve.js
  * @Description: 处理树结构类型，增加树结构的一些字段类型。
  */
+
+import CircularJSON from "circular-json";
 
 /**
  * 将给定的数据列表转换为树结构。
@@ -14,7 +16,7 @@
  * @returns 返回一个对象，包含处理过的树结构、节点的映射集合和节点的数组。
  */
 export const resolveTree = (dataList, config = {}) => {
-  let tree = JSON.parse(JSON.stringify(dataList));
+  let tree = CircularJSON.parse(CircularJSON.stringify(dataList));
   /**
    * 创建并初始化一个用于存储节点的对象映射表和数组。
    * 这段代码不接受参数，也不直接返回值，但为后续的节点管理提供了基础结构。
@@ -57,7 +59,7 @@ export const resolveTree = (dataList, config = {}) => {
       element['label'] = originElement[cfg.labelKey]; // 根据配置的labelKey，从源元素获取标签并赋给目标元素的label属性
 
       // 为节点增加原始数据字段
-      element['originData'] = JSON.parse(JSON.stringify(originElement));
+      element['originData'] = CircularJSON.parse(CircularJSON.stringify(originElement));
 
       // 初始化节点路径
       element['nodePath'] = [];
